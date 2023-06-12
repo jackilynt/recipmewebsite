@@ -50,11 +50,94 @@ bash
 npm run dev
 
 ## Usage
-Register a new user account.
-Log in with your credentials.
-Create new recipes by providing a title, ingredients, and instructions.
-View your recipes and manage them (update or delete).
-Log out to end your session.
+
+User API Endpoints
+
+-Register a new user account:
+
+POST /api/users/register
+
+Request Body:
+
+{
+  "username": "exampleuser",
+  "email": "user@example.com",
+  "password": "password123"
+}
+
+-Log in with user credentials:
+
+bash
+
+POST /api/users/login
+
+-Request Body:
+
+{
+  "email": "user@example.com",
+  "password": "password123"
+}
+
+-Log out:
+
+bash
+
+POST /api/users/logout
+This endpoint requires authentication.
+
+Recipe API Endpoints
+
+-Get all recipes:
+
+bash
+
+GET /api/recipes
+
+-Get a single recipe by ID:
+
+bash
+
+GET /api/recipes/:id
+
+-Create a new recipe:
+
+bash
+
+POST /api/recipes
+
+-Request Body:
+
+json
+
+{
+  "title": "Delicious Recipe",
+  "ingredients": "Ingredient 1, Ingredient 2, Ingredient 3",
+  "instructions": "Step 1, Step 2, Step 3"
+}
+This endpoint requires authentication.
+
+-Update a recipe:
+
+bash
+
+PUT /api/recipes/:id
+Request Body:
+
+json
+
+{
+  "title": "Updated Recipe Title",
+  "ingredients": "Updated Ingredient 1, Updated Ingredient 2, Updated Ingredient 3",
+  "instructions": "Updated Step 1, Updated Step 2, Updated Step 3"
+}
+
+This endpoint requires authentication.
+
+-Delete a recipe:
+
+bash
+DELETE /api/recipes/:id
+This endpoint requires authentication.
 
 ## Deployment
 The application can be deployed to a hosting platform such as Heroku, AWS, or Google Cloud. Before deploying, make sure you have an account on the chosen hosting platform and the necessary credentials.
